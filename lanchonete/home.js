@@ -14,15 +14,15 @@ function carregarDestaque() {
   let htmlBtnsCarousel = "";
   destaque.forEach((produto, index) => {
     htmlDestaque += `
-     <div class="carousel-item ${index === 0 ? "active" : ""} ">
+     <div " id="card" class="carousel-item ${index === 0 ? "active" : ""} ">
             <img
               src="${produto.img}"
               class="d-block w-100"
               alt="${produto.nome}"
             />
-            <div class="carousel-caption d-none d-md-block">
-            <p class="text-black">${produto.valor} R$</p>  
-            <p class="text-black">${produto.des}</p>
+            <div id="CardText" class="carousel-caption d-none d-md-block">
+            <p class="text-white">${produto.valor} R$</p>  
+            <p class="text-white">${produto.des}</p>
             </div>
           </div>
     `;
@@ -53,7 +53,7 @@ const cardapio = [
     nome: "Pizza Margherita (Fatia)",
     valor: 12.5,
     isDestaque: true,
-    img: "",
+    img: "https://thumbs.dreamstime.com/b/fatia-de-pizza-de-margherita-italian-com-manjeric%C3%A3o-77555059.jpg",
     des: "Massa fina, molho de tomate, queijo muçarela fresco e manjericão.",
   },
   {
@@ -61,7 +61,7 @@ const cardapio = [
     nome: "Hot Dog Especial",
     valor: 18.0,
     isDestaque: false,
-    img: "",
+    img: "https://www.minhareceita.com.br/app/uploads/2023/03/cachorro-quente-maneiras-de-preparar.jpg",
     des: "Salsicha de alta qualidade, pão macio, purê de batata, milho, vinagrete e batata palha.",
   },
   {
@@ -69,7 +69,7 @@ const cardapio = [
     nome: "Porção de Batata Frita",
     valor: 15.0,
     isDestaque: false,
-    img: "",
+    img: "https://static.wixstatic.com/media/a037bb_95c9809d8f2a466784365ba9acfa698e~mv2.jpg/v1/fill/w_480,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a037bb_95c9809d8f2a466784365ba9acfa698e~mv2.jpg",
     des: "Batatas fritas crocantes, com uma pitada de sal. Acompanha maionese temperada.",
   },
   {
@@ -77,7 +77,7 @@ const cardapio = [
     nome: "Sanduíche Natural",
     valor: 21.0,
     isDestaque: true,
-    img: "http://googleusercontent.com/image_collection/image_retrieval/8108445673629063824_0",
+    img: "https://compactaprint.com.br/wp-content/uploads/2024/11/Sanduiche-Natural-para-Vender.jpg",
     des: "Pão integral, peito de peru, queijo branco, alface, tomate e um toque de azeite.",
   },
   {
@@ -85,7 +85,7 @@ const cardapio = [
     nome: "Refrigerante em Lata",
     valor: 7.0,
     isDestaque: false,
-    img: "",
+    img: "https://static-images.ifood.com.br/pratos/777cb163-48d6-475e-877e-6af0b551cb49/202101131343_cZgm_.jpeg",
     des: "Diversos sabores disponíveis (coca-cola, guaraná, etc.).",
   },
   {
@@ -93,7 +93,7 @@ const cardapio = [
     nome: "Suco Natural",
     valor: 8.5,
     isDestaque: false,
-    img: "",
+    img: "https://agristar.com.br/upload/blog/original/dicas-de-sucos-naturais-para-refrescar-os-dias-mais-quentes-do-ano--17-12-2024-10-30-00-9726.jpg",
     des: "Sabores frescos do dia: laranja, abacaxi, morango ou limão.",
   },
   {
@@ -101,7 +101,7 @@ const cardapio = [
     nome: "Água Mineral",
     valor: 5.0,
     isDestaque: false,
-    img: "",
+    img: "https://fontagua.com.br/wp-content/uploads/2019/02/splash_15l.jpg",
     des: "Água mineral sem gás.",
   },
   {
@@ -109,15 +109,15 @@ const cardapio = [
     nome: "Cerveja Long Neck",
     valor: 11.0,
     isDestaque: false,
-    img: "",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR5ypXiq2t1t4puEOUvv-OoQwOupsNKmbLXg&s",
     des: "Diversas marcas de cerveja long neck gelada.",
   },
   {
     id: 10,
     nome: "Taco Mexicano",
     valor: 19.9,
-    isDestaque: true,
-    img: "http://googleusercontent.com/image_collection/image_retrieval/6318216088495087322_0",
+    isDestaque: false,
+    img: "https://www.restodonte.com.br/recipePics/9900837.jpg?vn124",
     des: "Tortilla de milho crocante recheada com carne moída, queijo, alface e molho apimentado.",
   },
   {
@@ -125,7 +125,7 @@ const cardapio = [
     nome: "Burrito",
     valor: 22.5,
     isDestaque: false,
-    img: "",
+    img: "https://sabores-new.s3.amazonaws.com/public/2024/11/burrito-de-frango.jpg",
     des: "Tortilla de trigo macia recheada com feijão, arroz, queijo, carne e molho de pimenta.",
   },
   {
@@ -133,7 +133,7 @@ const cardapio = [
     nome: "Nuggets de Frango",
     valor: 16.0,
     isDestaque: false,
-    img: "http://googleusercontent.com/image_collection/image_retrieval/15214005770354077383_0",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaFVbpVALqfgNUCsQQ9L0OekXMzX54l1NGoQ&s",
     des: "Deliciosos pedaços de frango empanados e fritos. Acompanha molho barbecue.",
   },
   {
@@ -141,7 +141,7 @@ const cardapio = [
     nome: "Pão de Queijo",
     valor: 8.0,
     isDestaque: false,
-    img: "http://googleusercontent.com/image_collection/image_retrieval/18115383205368307645_0",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUMtl4VgO0dAXk_0dNvaud7li5u5Hy0AWrfg&s",
     des: "Porção de pães de queijo frescos e quentinhos. Ideal para um lanche rápido.",
   },
   {
@@ -149,7 +149,7 @@ const cardapio = [
     nome: "Açaí na Tigela",
     valor: 24.0,
     isDestaque: false,
-    img: "http://googleusercontent.com/image_collection/image_retrieval/7688815896908026849_0",
+    img: "https://www.receitas-sem-fronteiras.com/media/4c4929j4tqnyjiayrx9lw6kb6_crop.jpg/rh/acai-na-tigela.jpg",
     des: "Açaí cremoso servido com granola, banana e morango. Opção de mel e leite condensado.",
   },
   {
@@ -157,7 +157,7 @@ const cardapio = [
     nome: "Milkshake de Chocolate",
     valor: 15.0,
     isDestaque: false,
-    img: "http://googleusercontent.com/image_collection/image_retrieval/12451145538207099458_0",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdp9k3erwyJfriBoxoRfMbzMlNmI1ln9FClA&s",
     des: "Milkshake cremoso de chocolate com sorvete de baunilha e calda de chocolate.",
   },
   {
@@ -165,7 +165,7 @@ const cardapio = [
     nome: "Café Expresso",
     valor: 6.0,
     isDestaque: false,
-    img: "",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYhDzPyid6zu6iA5Kp-jsdGhQQQDZgJ0Zy2g&s",
     des: "Café expresso de alta qualidade, servido quente e encorpado.",
   },
   {
@@ -173,7 +173,7 @@ const cardapio = [
     nome: "Chá Gelado",
     valor: 9.0,
     isDestaque: false,
-    img: "",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThe6-rfjfI816C0mfiatT_OIlNRXFMflmKjQ&s",
     des: "Chá gelado de limão e hortelã, perfeito para refrescar.",
   },
   {
@@ -181,7 +181,7 @@ const cardapio = [
     nome: "Limonada Suíça",
     valor: 10.0,
     isDestaque: false,
-    img: "",
+    img: "https://guiadacozinha.com.br/wp-content/uploads/2018/04/limonada-suica-768x619.jpg",
     des: "Limonada cremosa e refrescante, batida com limão, gelo e leite condensado.",
   },
 ];
