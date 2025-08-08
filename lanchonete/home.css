@@ -21,7 +21,6 @@
   object-fit: cover;
 }
 
-
 #btn-carrinho {
   position: fixed;
   right: 2%;
@@ -55,6 +54,11 @@
   width: 50%;
   height: 100%;
   z-index: 1001;
+  transition: all 0.3s ease;
+}
+.closed {
+  position: fixed;
+  right: -50% !important;
 }
 
 #container-carrinho .title {
@@ -65,8 +69,4 @@
   height: 80%;
   width: 100%;
   overflow-y: auto !important;
-}
-
-.closed {
-  display: none !important;
 }
