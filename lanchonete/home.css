@@ -21,6 +21,7 @@
   object-fit: cover;
 }
 
+
 #btn-carrinho {
   position: fixed;
   right: 2%;
@@ -45,4 +46,27 @@
   border-left: 8px solid orange;
   transform: translateY(-5px);
   cursor: pointer;
+}
+
+#container-carrinho {
+  position: fixed;
+  right: 0;
+  top: 0%;
+  width: 50%;
+  height: 100%;
+  z-index: 1001;
+}
+
+#container-carrinho .title {
+  width: 100%;
+}
+
+#card-deck-carrinho {
+  height: 80%;
+  width: 100%;
+  overflow-y: auto !important;
+}
+
+.closed {
+  display: none !important;
 }

@@ -6,7 +6,7 @@ function carregarSite() {
 }
 
 function listCardapio() {
-  const cardDeck = document.querySelector("#card-deck");
+  const cardDeck = document.querySelector("#card-deck-cardapio");
   let listCards = "";
   cardapio.forEach((produto) => {
     listCards += `
@@ -22,7 +22,7 @@ function listCardapio() {
             <p class="card-text">
               <strong>R$${produto.valor}</strong>
             </p>
-            <button class="btn btn-warning">adicionar ao pedido</button>
+            <button class="btn btn-warning" onclick="addCarrinho(${produto.id})">adicionar ao pedido</button>
           </div>
         </div>
         </div>
@@ -49,7 +49,7 @@ function carregarDestaque() {
               class="d-block w-100"
               alt="${produto.nome}"
             />
-            <div id="CardText" class="carousel-caption d-none d-md-block">
+            <div id="CardText" class="carousel-caption d-block">
             <p class="text-white">${produto.valor.toFixed(2)} R$</p>  
             <p class="text-white">${produto.des}</p>
             </div>
