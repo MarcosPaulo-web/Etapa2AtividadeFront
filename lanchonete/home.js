@@ -2,6 +2,33 @@ window.addEventListener("DOMContentLoaded", carregarSite);
 
 function carregarSite() {
   carregarDestaque();
+  listCardapio();
+}
+
+function listCardapio() {
+  const cardDeck = document.querySelector("#card-deck");
+  let listCards = "";
+  cardapio.forEach((produto) => {
+    listCards += `
+    <div class="col-12 col-md-5">
+      <div class="card d-flex flex-row" id="card"">
+          <img
+            src="${produto.img}"
+            alt="${produto.nome}"
+          style="max-width: 100px; height: auto; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">${produto.nome}</h5>
+            <p class="card-text">
+              <strong>R$${produto.valor}</strong>
+            </p>
+            <button class="btn btn-warning">adicionar ao pedido</button>
+          </div>
+        </div>
+        </div>
+`;
+  });
+  cardDeck.innerHTML = listCards;
 }
 
 function carregarDestaque() {
@@ -14,14 +41,16 @@ function carregarDestaque() {
   let htmlBtnsCarousel = "";
   destaque.forEach((produto, index) => {
     htmlDestaque += `
-     <div " id="card" class="carousel-item ${index === 0 ? "active" : ""} ">
+     <div " id="cardCarousel" class="carousel-item ${
+       index === 0 ? "active" : ""
+     } ">
             <img
               src="${produto.img}"
               class="d-block w-100"
               alt="${produto.nome}"
             />
             <div id="CardText" class="carousel-caption d-none d-md-block">
-            <p class="text-white">${produto.valor} R$</p>  
+            <p class="text-white">${produto.valor.toFixed(2)} R$</p>  
             <p class="text-white">${produto.des}</p>
             </div>
           </div>
@@ -39,11 +68,12 @@ function carregarDestaque() {
   carouselCards.innerHTML = htmlDestaque || "<h1>sem destaque</h1>";
   carouselIndicators.innerHTML = htmlBtnsCarousel;
 }
+
 const cardapio = [
   {
     id: 1,
     nome: "Hambúrguer Clássico",
-    valor: 25.9,
+    valor: 25.99,
     isDestaque: true,
     img: "https://img77.uenicdn.com/image/upload/v1582164126/business/99def3c9-86a1-4c19-9317-d5376c18c298/hamburguer-shutterstockjpg.jpg",
     des: "Pão de hambúrguer, carne suculenta, queijo, alface, tomate e maionese especial.",
@@ -115,7 +145,7 @@ const cardapio = [
   {
     id: 10,
     nome: "Taco Mexicano",
-    valor: 19.9,
+    valor: 19.99,
     isDestaque: false,
     img: "https://www.restodonte.com.br/recipePics/9900837.jpg?vn124",
     des: "Tortilla de milho crocante recheada com carne moída, queijo, alface e molho apimentado.",
