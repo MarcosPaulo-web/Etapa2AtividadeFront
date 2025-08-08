@@ -30,7 +30,10 @@ function clearCarrinho() {
 function loadCardsCarrinho() {
   const cardDeckCarrinho = document.querySelector("#card-deck-carrinho");
   const arrayCarrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
+  if (arrayCarrinho.length === 0) {
+    cardDeckCarrinho.innerHTML = "<h1>Sem produtos adicionados</h1>";
+    return;
+  }
   let listCardsCarrinho = "";
   arrayCarrinho.forEach((prodCar) => {
     listCardsCarrinho += `
