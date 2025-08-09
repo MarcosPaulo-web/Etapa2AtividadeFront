@@ -14,17 +14,30 @@ function addCarrinho(id) {
 
   localStorage.setItem("carrinho", JSON.stringify(arrayCarrinho));
   loadCardsCarrinho();
+  loadPrecoFinal();
 }
 
 function showCarrinho() {
   const carrinho = document.querySelector("#container-carrinho");
   carrinho.classList.toggle("closed");
   loadCardsCarrinho();
+  loadPrecoFinal();
 }
 
 function clearCarrinho() {
   localStorage.clear();
+  loadPrecoFinal();
   loadCardsCarrinho();
+}
+
+function loadPrecoFinal() {
+  const arrayCarrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  const containerPrecoFinal = document.querySelector(".precoFinal");
+  let precoFinal = 0;
+  arrayCarrinho.forEach((prod) => (precoFinal += prod.quantidade * prod.valor));
+  containerPrecoFinal.innerHTML = `<h2>Valor da compra : ${precoFinal.toFixed(
+    2
+  )}</h2>`;
 }
 
 function loadCardsCarrinho() {
@@ -49,11 +62,44 @@ function loadCardsCarrinho() {
             <p class="card-text">
               <strong>R$${prodCar.valor}</strong>
             </p>
-           <input type="number" name="quantidade" value="${prodCar.quantidade}" class="form-control" min="1" max="10" step="1" value="1" />
+           <div class="input-group" style="width:130px;">
+          <button class="btn btn-outline-secondary" type="button" onclick="alterarQuantidade(${prodCar.id}, -1)">-</button>
+          
+          <input 
+            type="number" 
+            id="quantidade-${prodCar.id}" 
+            value="${prodCar.quantidade}" 
+            class="form-control text-center" 
+            min="1" 
+            max="10" 
+            step="1" 
+            onchange="atualizarQuantidadeCarrinho(${prodCar.id}, this.value)"
+          >
+          
+          <button class="btn btn-outline-secondary" type="button" onclick="alterarQuantidade(${prodCar.id}, 1)">+</button>
+        </div>
           </div>
         </div>
         </div>
 `;
   });
+  loadPrecoFinal();
   cardDeckCarrinho.innerHTML = listCardsCarrinho;
+}
+function alterarQuantidade(id, quantidade) {
+  const arrayCarrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  const item = arrayCarrinho.find((prod) => prod.id === id);
+  const novaQtd = item.quantidade + quantidade;
+
+  if (novaQtd > 10) {
+    novaQtd = 10;
+  }
+  if (novaQtd < 1) {
+    novaQtd = 1;
+  }
+
+  item.quantidade = novaQtd;
+
+  localStorage.setItem("carrinho", JSON.stringify(arrayCarrinho));
+  loadCardsCarrinho();
 }
