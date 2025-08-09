@@ -15,6 +15,7 @@ function addCarrinho(id) {
   localStorage.setItem("carrinho", JSON.stringify(arrayCarrinho));
   loadCardsCarrinho();
   loadPrecoFinal();
+  mostrarToast("Produto adicionado ao carrinho");
 }
 
 function showCarrinho() {

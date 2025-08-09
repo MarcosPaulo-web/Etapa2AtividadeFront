@@ -5,6 +5,12 @@ function carregarSite() {
   listCardapio();
 }
 
+function mostrarToast(text) {
+  const toast = new bootstrap.Toast(document.getElementById("meuToast"));
+  document.querySelector(".toast-body").innerHTML = text;
+  toast.show();
+}
+
 function listCardapio() {
   const cardDeck = document.querySelector("#card-deck-cardapio");
   let listCards = "";
