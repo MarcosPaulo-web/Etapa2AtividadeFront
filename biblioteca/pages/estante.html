@@ -1,21 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Estante</title>
     <link rel="stylesheet" href="/biblioteca/style/estante.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
 </head>
 <body>
-    <header>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Biblioteca Luz do Vale</a>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/biblioteca/pages/index.html">Acervo</a>
+                    <a class="nav-link active" href="/biblioteca/pages/estante.html">Estante</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
 
-    </header>
-    <main>
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card shadow" style="background: rgba(255, 255, 255, 0.8);">
+                <div class="card-body text-center">
+                    <h4 class="card-title fw-bold">Minha Estante</h4>
+                    <p class="card-text">Total de livros: <span id="contador-livros">0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </main>
-    <footer>
+    <!-- Livros -->
+    <div id="lista-estante" class="lista-livros row g-4">
 
-    </footer>
-    <script src="/biblioteca/script/estante.js"></script>
+    </div>
+</div>
+
+<script src="/biblioteca/script/estante.js"></script>
 </body>
 </html>

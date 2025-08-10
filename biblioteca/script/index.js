@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const botoesAdicionar = document.querySelectorAll(".adicionar-estante");
 
-    // Recupera ou cria arrays no localStorage
+    // Recupera arrays existentes no localStorage ou cria vazios
     let livros = JSON.parse(localStorage.getItem("livros")) || [];
     let estante = JSON.parse(localStorage.getItem("estante")) || [];
 
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const titulo = this.dataset.titulo;
             const autor = this.dataset.autor;
             const genero = this.dataset.genero;
+            const imagem = this.dataset.imagem; // agora salva a imagem
 
             // Verifica se o livro já está na estante
             const jaExiste = estante.some(item => item.idLivro === id);
@@ -19,22 +20,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Cria o objeto Livro
+            // Objeto do Livro
             const novoLivro = {
                 id: id,
                 titulo: titulo,
                 autor: autor,
-                isEstante: true,
-                genero: genero
+                genero: genero,
+                imagem: imagem // adiciona caminho da imagem
             };
 
-            // Cria o objeto Estante
+            // Objeto da Estante
             const novoEstante = {
                 idLivro: id,
                 isLido: false
             };
 
-            // Adiciona nos arrays
+            // Adiciona no array
             livros.push(novoLivro);
             estante.push(novoEstante);
 

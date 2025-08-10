@@ -6,6 +6,8 @@ body {
 main {
     justify-content: center;
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 body::before {
@@ -17,4 +19,47 @@ body::before {
     background-position: center;
     filter: blur(8px);
     z-index: -1;
+}
+
+.navbar {
+    opacity: 95%;
+}
+
+.navbar.bg-light {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar-brand {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+main {
+    color: whitesmoke;
+}
+
+.card-img-top {
+    height: 250px;        
+    object-fit: contain;  
+    background-color: transparent;
+    padding: 5px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.7) !important; 
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    background-color: transparent;
 }
