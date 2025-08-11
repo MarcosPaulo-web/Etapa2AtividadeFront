@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const titulo = this.dataset.titulo;
             const autor = this.dataset.autor;
             const genero = this.dataset.genero;
-            const imagem = this.dataset.imagem; // agora salva a imagem
+            const imagem = this.dataset.imagem;
 
             // Verifica se o livro já está na estante
             const jaExiste = estante.some(item => item.idLivro === id);
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 titulo: titulo,
                 autor: autor,
                 genero: genero,
-                imagem: imagem // adiciona caminho da imagem
+                imagem: imagem
             };
 
             // Objeto da Estante
@@ -46,4 +46,24 @@ document.addEventListener("DOMContentLoaded", function () {
             alert(`✅ "${titulo}" foi adicionado à sua estante!`);
         });
     });
+
+    // ===== FILTRO DE PESQUISA =====
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".card");
+
+if (searchInput) {
+    searchInput.addEventListener("input", function () {
+        const term = this.value.toLowerCase();
+        cards.forEach(card => {
+            const title = card.querySelector(".card-title").textContent.toLowerCase();
+            const genre = card.querySelector(".text-secondary").textContent.toLowerCase();
+
+            if (title.includes(term) || genre.includes(term)) {
+                card.parentElement.classList.remove("d-none"); // mostra mantendo layout
+            } else {
+                card.parentElement.classList.add("d-none"); // esconde sem quebrar layout
+            }
+        });
+    });
+}
 });
