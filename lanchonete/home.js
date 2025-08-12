@@ -3,6 +3,51 @@ window.addEventListener("DOMContentLoaded", carregarSite);
 function carregarSite() {
   carregarDestaque();
   listCardapio();
+  if (localStorage.getItem("tema") == "dark_theme") {
+    trocarTema();
+  }
+}
+
+function trocarTema() {
+  const allWarningColor = document.querySelectorAll(".bg-warning, .bg-black");
+
+  allWarningColor.forEach((elemento) => {
+    elemento.classList.toggle("bg-warning");
+    elemento.classList.toggle("bg-black");
+  });
+
+  const allLightColor = document.querySelectorAll(".bg-light, .bg-dark");
+  allLightColor.forEach((elemento) => {
+    elemento.classList.toggle("bg-light");
+    elemento.classList.toggle("bg-dark");
+    elemento.classList.toggle("text-light");
+
+    if (elemento.classList.contains("card")) {
+      elemento.classList.toggle("border-warning");
+    }
+  });
+  const btnTheme = document.querySelector("#btnTheme");
+
+  btnTheme.classList.toggle("dark_theme");
+  btnTheme.classList.toggle("light_theme");
+
+  if (btnTheme.classList.contains("dark_theme")) {
+    localStorage.setItem("tema", "light_theme");
+    btnTheme.classList.add("btn-outline-dark");
+    btnTheme.classList.remove("btn-outline-light");
+    btnTheme.textContent = "Modo Escuro";
+  } else {
+    //tema escuro
+    localStorage.setItem("tema", "dark_theme");
+    btnTheme.classList.remove("btn-outline-dark");
+    btnTheme.classList.add("btn-outline-light");
+    btnTheme.textContent = "Modo Claro";
+  }
+
+  const carrinho = document.querySelector(".btn-outline-success,.btn-light");
+
+  carrinho.classList.toggle("btn-outline-success");
+  carrinho.classList.toggle("btn-light");
 }
 
 function mostrarToast(text) {
@@ -17,7 +62,7 @@ function listCardapio() {
   cardapio.forEach((produto) => {
     listCards += `
     <div class="col-12 col-md-5">
-      <div class="card d-flex flex-row" id="card"">
+      <div class="card bg-light d-flex flex-row" id="card"">
           <img
             src="${produto.img}"
             alt="${produto.nome}"
@@ -46,6 +91,7 @@ function carregarDestaque() {
   let htmlDestaque = "";
   let htmlBtnsCarousel = "";
   destaque.forEach((produto, index) => {
+    // a parte dos cards das imagens
     htmlDestaque += `
      <div " id="cardCarousel" class="carousel-item ${
        index === 0 ? "active" : ""
@@ -61,6 +107,7 @@ function carregarDestaque() {
             </div>
           </div>
     `;
+    // btns que ficam em baixo para mostrar em qual posição de todos os destaques estamos
     htmlBtnsCarousel += `
       <button
         type="button"
