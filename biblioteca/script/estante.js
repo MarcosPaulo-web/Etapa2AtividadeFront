@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const listaEstante = document.getElementById("lista-estante");
     const contador = document.getElementById("contador-livros");
+    const searchInput = document.getElementById("searchInput");
 
     let livros = JSON.parse(localStorage.getItem("livros")) || [];
     let estante = JSON.parse(localStorage.getItem("estante")) || [];
@@ -9,10 +10,22 @@ document.addEventListener("DOMContentLoaded", function () {
         contador.textContent = estante.length;
     }
 
-    function renderizarEstante() {
+    function renderizarEstante(filtro = "") {
         listaEstante.innerHTML = "";
 
-        estante.forEach(itemEstante => {
+        // Filtro aplicado sobre os livros
+        const estanteFiltrada = estante.filter(itemEstante => {
+            const livro = livros.find(l => l.id === itemEstante.idLivro);
+            if (!livro) return false;
+
+            const termo = filtro.toLowerCase();
+            return (
+                livro.titulo.toLowerCase().includes(termo) ||
+                livro.genero.toLowerCase().includes(termo)
+            );
+        });
+
+        estanteFiltrada.forEach(itemEstante => {
             const livro = livros.find(l => l.id === itemEstante.idLivro);
             if (!livro) return;
 
@@ -45,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         atualizarContador();
     }
 
+    // Remover livro
     listaEstante.addEventListener("click", function (e) {
         if (e.target.classList.contains("remover-estante")) {
             const id = parseInt(e.target.dataset.id);
@@ -55,10 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("livros", JSON.stringify(livros));
             localStorage.setItem("estante", JSON.stringify(estante));
 
-            renderizarEstante();
+            renderizarEstante(searchInput.value);
         }
     });
 
+    // Marcar como lido
     listaEstante.addEventListener("change", function (e) {
         if (e.target.classList.contains("marcar-lido")) {
             const id = parseInt(e.target.dataset.id);
@@ -70,6 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    // Filtro de pesquisa
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            renderizarEstante(this.value);
+        });
+    }
 
     renderizarEstante();
 });

@@ -12,31 +12,37 @@
     <title>Biblioteca Luz do Vale</title>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand">Biblioteca Luz do Vale</a>
-            <button class="navbar-toggler" type="button" 
-                data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav me-auto">
-                    <a class="nav-link active" aria-current="page" 
-                        href="/biblioteca/pages/index.html">Acervo</a>
-                    <a class="nav-link" href="/biblioteca/pages/estante.html">Estante</a>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">Biblioteca Luz do Vale</a>
+                <button class="navbar-toggler" type="button" 
+                    data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav me-auto">
+                        <a class="nav-link active" aria-current="page" href="/biblioteca/pages/index.html">Acervo</a>
+                        <a class="nav-link" href="/biblioteca/pages/estante.html">Estante</a>
+                    </div>
+
+                    <div class="d-flex justify-content-center w-100">
+                        <form class="d-flex" role="search" style="max-width: 400px; width: 30%;">
+                            <input id="searchInput" class="form-control me-2" 
+                                type="search" placeholder="Digite nome ou gênero" aria-label="Search">
+                        </form>
+                    </div>
+
+                    <button class="btn btn-outline-dark" style="width: 20%;" id="btnTema">Alterar tema</button>
                 </div>
-
-                <form class="d-flex" role="search">
-                    <input id="searchInput" class="form-control me-2" type="search" placeholder="Digite nome ou gênero" aria-label="Search">
-                </form>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
+    <!-- Livros no acervo -->
     <main class="container my-4 pt-4">
         <div class="row row-cols-2 row-cols-md-4 g-4">
             
@@ -50,7 +56,7 @@
                             <small>Gênero: Distopia / Ficção Científica</small><br>
                             <small>Ano: 1949</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="1"
                             data-titulo="1984"
                             data-autor="George Orwell"
@@ -72,7 +78,7 @@
                             <small>Gênero: Romance / Realismo</small><br>
                             <small>Ano: 1899</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="2"
                             data-titulo="Dom Casmurro"
                             data-autor="Machado de Assis"
@@ -95,7 +101,7 @@
                             <small>Gênero: Fábula / Filosofia</small><br>
                             <small>Ano: 1943</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="3"
                             data-titulo="O Pequeno Príncipe"
                             data-autor="Antoine de Saint-Exupéry"
@@ -118,7 +124,7 @@
                             <small>Gênero: Fantasia / Aventura</small><br>
                             <small>Ano: 1997</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="4"
                             data-titulo="Harry Potter e a Pedra Filosofal"
                             data-autor="J.K. Rowling"
@@ -141,7 +147,7 @@
                             <small>Gênero: Fantasia / Aventura</small><br>
                             <small>Ano: 1937</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="5"
                             data-titulo="O Hobbit"
                             data-autor="J.R.R. Tolkien"
@@ -164,7 +170,7 @@
                             <small>Gênero: Romance / Drama</small><br>
                             <small>Ano: 1813</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="6"
                             data-titulo="Orgulho e Preconceito"
                             data-autor="Jane Austen"
@@ -186,7 +192,7 @@
                             <small>Gênero: Suspense / Mistério</small><br>
                             <small>Ano: 2003</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="7"
                             data-titulo="O Código Da Vinci"
                             data-autor="Dan Brown"
@@ -209,7 +215,7 @@
                             <small>Gênero: Romance / Drama</small><br>
                             <small>Ano: 2012</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="8"
                             data-titulo="A Culpa é das Estrelas"
                             data-autor="John Green"
@@ -232,7 +238,7 @@
                             <small>Gênero: Romance Social</small><br>
                             <small>Ano: 1937</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="9"
                             data-titulo="Capitães da Areia"
                             data-autor="Jorge Amado"
@@ -254,7 +260,7 @@
                             <small>Gênero: Biografia / História</small><br>
                             <small>Ano: 1947</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="10"
                             data-titulo="O Diário de Anne Frank"
                             data-autor="Anne Frank"
@@ -277,7 +283,7 @@
                             <small>Gênero: Existencialismo / Ficção</small><br>
                             <small>Ano: 1915</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="11"
                             data-titulo="A Metamorfose"
                             data-autor="Franz Kafka"
@@ -300,7 +306,7 @@
                             <small>Gênero: Romance / Drama Histórico</small><br>
                             <small>Ano: 1862</small>
                         </p>
-                        <button class="btn btn-sm btn-outline-primary mt-auto w-100 adicionar-estante"
+                        <button class="btn btn-sm btn-outline-dark mt-auto w-100 adicionar-estante"
                             data-id="12"
                             data-titulo="Os Miseráveis"
                             data-autor="Victor Hugo"
