@@ -37,6 +37,7 @@ function trocarTema() {
     btnTheme.classList.remove("btn-outline-light");
     btnTheme.textContent = "Modo Escuro";
   } else {
+    //tema escuro
     localStorage.setItem("tema", "dark_theme");
     btnTheme.classList.remove("btn-outline-dark");
     btnTheme.classList.add("btn-outline-light");
