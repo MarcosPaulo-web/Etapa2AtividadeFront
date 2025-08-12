@@ -3,7 +3,11 @@ window.addEventListener("DOMContentLoaded", carregarSite);
 function carregarSite() {
   carregarDestaque();
   listCardapio();
+  if (localStorage.getItem("tema") == "dark_theme") {
+    trocarTema();
+  }
 }
+
 function trocarTema() {
   const allWarningColor = document.querySelectorAll(".bg-warning, .bg-black");
 
@@ -28,10 +32,12 @@ function trocarTema() {
   btnTheme.classList.toggle("light_theme");
 
   if (btnTheme.classList.contains("dark_theme")) {
+    localStorage.setItem("tema", "light_theme");
     btnTheme.classList.add("btn-outline-dark");
     btnTheme.classList.remove("btn-outline-light");
     btnTheme.textContent = "Modo Escuro";
   } else {
+    localStorage.setItem("tema", "dark_theme");
     btnTheme.classList.remove("btn-outline-dark");
     btnTheme.classList.add("btn-outline-light");
     btnTheme.textContent = "Modo Claro";
