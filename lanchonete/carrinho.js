@@ -15,7 +15,20 @@ function addCarrinho(id) {
   localStorage.setItem("carrinho", JSON.stringify(arrayCarrinho));
   loadCardsCarrinho();
   loadPrecoFinal();
+  setQtd();
   mostrarToast("Produto adicionado ao carrinho");
+}
+
+function setQtd() {
+  const qtd = document.querySelector("#cartBadge");
+  const arrayCarrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  let qtdFinal = 0;
+  arrayCarrinho.forEach((prod) => {
+    qtdFinal += prod.quantidade;
+  });
+
+  qtd.innerHTML = qtdFinal;
 }
 
 function showCarrinho() {
@@ -30,6 +43,7 @@ function clearCarrinho() {
   loadPrecoFinal();
   loadCardsCarrinho();
   mostrarToast("Compra finalizada com sucesso");
+  setQtd();
 }
 
 function loadPrecoFinal() {
@@ -110,4 +124,5 @@ function alterarQuantidade(id, quantidade) {
 
   localStorage.setItem("carrinho", JSON.stringify(arrayCarrinho));
   loadCardsCarrinho();
+  setQtd();
 }
