@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light" data-btn-color="azul">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizador de tarefas</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../organizadorTarefas/assets/favicon.ico"
+    />
+    <link rel="stylesheet" href="/organizadorTarefas/tarefas.css" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12 d-flex flex-column align-items-center">
+          <!--<img
+            id="logo"
+            src="/organizadorTarefas/assets/organizador_logo.png"
+            alt=""
+          />-->
+          <h1 class="text-center">ORGANIZADOR DE TAREFAS</h1>
+          <h5 class="text-center mb-5">
+            <small class="text-body-secondary">
+              mantenha suas tarefas escolares organizadas!
+            </small>
+          </h5>
+
+          <div class="themes d-flex gap-3 mb-5">
+            <button id="btnTema" class="btn btn-dark">Alterar tema 🌙</button>
+            <input type="radio" name="cor_tema" id="azul" class="btn-check" />
+            <label
+              for="azul"
+              class="d-inline-block rounded-circle bt-azul"
+            ></label>
+            <input
+              type="radio"
+              name="cor_tema"
+              id="vermelho"
+              class="btn-check"
+            />
+            <label
+              for="vermelho"
+              class="d-inline-block rounded-circle bt-vermelho"
+            ></label>
+            <input type="radio" name="cor_tema" id="verde" class="btn-check" />
+            <label
+              for="verde"
+              class="d-inline-block rounded-circle bt-verde"
+            ></label>
+          </div>
+
+          <form
+            id="formTarefa"
+            class="container-sm p-4 rounded-4 mb-5 d-flex justify-content-center"
+          >
+            <div class="col-12 col-md-10 col-lg-9">
+              <div class="campo-form mb-3">
+                <label for="descricao" class="form-label"
+                  >Descrição da Tarefa</label
+                >
+                <textarea
+                  class="form-control"
+                  name="descricao_tarefa"
+                  id="descricao"
+                  rows="3"
+                  placeholder="Ex: Estudar para a prova..."
+                  required
+                ></textarea>
+              </div>
+              <div class="campo-form mb-3">
+                <label for="data" class="form-label">Data Limite</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="data_tarefa"
+                  id="data"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn-lg d-block mx-auto btn-dinamico"
+              >
+                + Adicionar Tarefa
+              </button>
+            </div>
+          </form>
+
+          <div class="d-flex gap-3 mb-4">
+            <button id="filtro-todas" class="btn btn-dinamico btn-filtro">
+              Todas
+            </button>
+            <button id="filtro-pendentes" class="btn btn-dinamico btn-filtro">
+              Pendentes
+            </button>
+            <button id="filtro-atrasadas" class="btn btn-dinamico btn-filtro">
+              Atrasadas
+            </button>
+            <button id="filtro-concluidas" class="btn btn-dinamico btn-filtro">
+              Concluídas
+            </button>
+          </div>
+          <div class="tarefas" id="lista-tarefas"></div>
+        </div>
+      </div>
+    </div>
+    <script src="../organizadorTarefas/temaTarefas.js"></script>
+    <script src="../organizadorTarefas/tarefas.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
