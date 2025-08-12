@@ -19,6 +19,14 @@
       <h1>Lanchonete Express</h1>
       <p>Sabor rápido, qualidade garantida!</p>
     </header>
+    <button
+      class="btn dark_theme btn-outline-dark border-2"
+      id="btnTheme"
+      onclick="trocarTema()"
+    >
+      Tema escuro
+    </button>
+
     <div class="toast-container position-fixed top-0 end-0 p-5">
       <div
         id="meuToast"
@@ -75,7 +83,11 @@
       onclick="showCarrinho()"
     >
       <span class="cart-badge" id="cartBadge">0</span>
-      <img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt="" />
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/4/4295.png"
+        id="imagem_carrinho"
+        alt=""
+      />
     </button>
     <aside
       class="container closed d-flex flex-column bg-light p-0 pb-4 border-warning"
@@ -83,7 +95,7 @@
     >
       <div class="title bg-warning d-flex justify-content-between p-3">
         <h2>carrinho</h2>
-        <button class="btn-close" onclick="showCarrinho()"></button>
+        <button class="btn-close bg-white" onclick="showCarrinho()"></button>
       </div>
 
       <div

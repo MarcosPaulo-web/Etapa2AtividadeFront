@@ -4,6 +4,44 @@ function carregarSite() {
   carregarDestaque();
   listCardapio();
 }
+function trocarTema() {
+  const allWarningColor = document.querySelectorAll(".bg-warning, .bg-black");
+
+  allWarningColor.forEach((elemento) => {
+    elemento.classList.toggle("bg-warning");
+    elemento.classList.toggle("bg-black");
+  });
+
+  const allLightColor = document.querySelectorAll(".bg-light, .bg-dark");
+  allLightColor.forEach((elemento) => {
+    elemento.classList.toggle("bg-light");
+    elemento.classList.toggle("bg-dark");
+    elemento.classList.toggle("text-light");
+
+    if (elemento.classList.contains("card")) {
+      elemento.classList.toggle("border-warning");
+    }
+  });
+  const btnTheme = document.querySelector("#btnTheme");
+
+  btnTheme.classList.toggle("dark_theme");
+  btnTheme.classList.toggle("light_theme");
+
+  if (btnTheme.classList.contains("dark_theme")) {
+    btnTheme.classList.add("btn-outline-dark");
+    btnTheme.classList.remove("btn-outline-light");
+    btnTheme.textContent = "Modo Escuro";
+  } else {
+    btnTheme.classList.remove("btn-outline-dark");
+    btnTheme.classList.add("btn-outline-light");
+    btnTheme.textContent = "Modo Claro";
+  }
+
+  const carrinho = document.querySelector(".btn-outline-success,.btn-light");
+
+  carrinho.classList.toggle("btn-outline-success");
+  carrinho.classList.toggle("btn-light");
+}
 
 function mostrarToast(text) {
   const toast = new bootstrap.Toast(document.getElementById("meuToast"));
@@ -17,7 +55,7 @@ function listCardapio() {
   cardapio.forEach((produto) => {
     listCards += `
     <div class="col-12 col-md-5">
-      <div class="card d-flex flex-row" id="card"">
+      <div class="card bg-light d-flex flex-row" id="card"">
           <img
             src="${produto.img}"
             alt="${produto.nome}"
