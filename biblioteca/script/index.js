@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Objeto do Livro
+            // Objetos
             const novoLivro = {
                 id: id,
                 titulo: titulo,
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagem: imagem
             };
 
-            // Objeto da Estante
             const novoEstante = {
                 idLivro: id,
                 isLido: false
@@ -47,23 +46,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ===== FILTRO DE PESQUISA =====
+    // Filtro de pesquisa
     const searchInput = document.getElementById("searchInput");
     const cards = document.querySelectorAll(".card");
 
-if (searchInput) {
-    searchInput.addEventListener("input", function () {
-        const term = this.value.toLowerCase();
-        cards.forEach(card => {
-            const title = card.querySelector(".card-title").textContent.toLowerCase();
-            const genre = card.querySelector(".text-secondary").textContent.toLowerCase();
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            const term = this.value.toLowerCase();
+            cards.forEach(card => {
+                const title = card.querySelector(".card-title").textContent.toLowerCase();
+                const genre = card.querySelector(".text-secondary").textContent.toLowerCase();
 
-            if (title.includes(term) || genre.includes(term)) {
-                card.parentElement.classList.remove("d-none"); // mostra mantendo layout
-            } else {
-                card.parentElement.classList.add("d-none"); // esconde sem quebrar layout
-            }
+                if (title.includes(term) || genre.includes(term)) {
+                    card.parentElement.classList.remove("d-none"); // mostra mantendo layout
+                } else {
+                    card.parentElement.classList.add("d-none"); // esconde sem quebrar layout
+                }
+            });
         });
-    });
-}
+    }
 });
