@@ -1,3 +1,10 @@
+window.addEventListener("DOMContentLoaded", loadItens());
+
+function loadItens() {
+  setQtd();
+  loadCardsCarrinho();
+}
+
 function addCarrinho(id) {
   const arrayCarrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 

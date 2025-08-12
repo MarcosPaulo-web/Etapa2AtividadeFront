@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", carregarSite);
 function carregarSite() {
   carregarDestaque();
   listCardapio();
+
   if (localStorage.getItem("tema") == "dark_theme") {
     trocarTema();
   }
@@ -95,7 +96,9 @@ function carregarDestaque() {
     htmlDestaque += `
      <div " id="cardCarousel" class="carousel-item ${
        index === 0 ? "active" : ""
-     } ">
+     } "
+     data-bs-interval="5000"
+     >
             <img
               src="${produto.img}"
               class="d-block w-100"
