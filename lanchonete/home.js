@@ -91,6 +91,7 @@ function carregarDestaque() {
   let htmlDestaque = "";
   let htmlBtnsCarousel = "";
   destaque.forEach((produto, index) => {
+    // a parte dos cards das imagens
     htmlDestaque += `
      <div " id="cardCarousel" class="carousel-item ${
        index === 0 ? "active" : ""
@@ -106,6 +107,7 @@ function carregarDestaque() {
             </div>
           </div>
     `;
+    // btns que ficam em baixo para mostrar em qual posição de todos os destaques estamos
     htmlBtnsCarousel += `
       <button
         type="button"
