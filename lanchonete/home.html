@@ -10,22 +10,45 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../lanchonete/home.css" />
-    <title></title>
+    <title>Lanchonete Express</title>
   </head>
   <body class="bg-warning d-flex justify-content-center flex-column gap-4 my-4">
     <header
-      class="container-xxl d-flex bg-light text-center flex-column p-3 rounded-4"
+      class="container-fluid d-flex bg-light text-center flex-row justify-content-between p-3"
     >
-      <h1>Lanchonete Express</h1>
-      <p>Sabor rápido, qualidade garantida!</p>
+      <div class="logo">
+        <img
+          src="https://sdmntprcentralus.oaiusercontent.com/files/00000000-4438-61f5-9503-13fb4bcf74bc/raw?se=2025-08-12T20%3A41%3A46Z&sp=r&sv=2024-08-04&sr=b&scid=86e1ef8f-de49-54a2-a06d-663f7a15886b&skoid=a3412ad4-1a13-47ce-91a5-c07730964f35&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-12T12%3A53%3A17Z&ske=2025-08-13T12%3A53%3A17Z&sks=b&skv=2024-08-04&sig=USV8rY%2BJwEFV0vUpND/Yuz/g1ruvUOxZht3G3JgAU0g%3D"
+          alt="logo"
+          style="width: 80px; height: auto; border-radius: 50%"
+        />
+      </div>
+      <div class="mensagem">
+        <h1>Lanchonete Express</h1>
+        <p>Sabor rápido, qualidade garantida!</p>
+      </div>
+      <div class="group-btns d-flex justify-content-center gap-3">
+        <button
+          class="btn dark_theme btn-outline-dark border-2"
+          id="btnTheme"
+          onclick="trocarTema()"
+        >
+          Tema escuro
+        </button>
+        <button
+          id="btn-carrinho"
+          class="btn btn-outline-success"
+          onclick="showCarrinho()"
+        >
+          <span class="cart-badge" id="cartBadge">0</span>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4/4295.png"
+            id="imagem_carrinho"
+            alt=""
+          />
+        </button>
+      </div>
     </header>
-    <button
-      class="btn dark_theme btn-outline-dark border-2"
-      id="btnTheme"
-      onclick="trocarTema()"
-    >
-      Tema escuro
-    </button>
 
     <div class="toast-container position-fixed top-0 end-0 p-5">
       <div
@@ -50,7 +73,7 @@
     >
       <div
         id="carouselExampleCaptions"
-        class="carousel slide rounded-4"
+        class="carousel slide"
         data-bs-ride="carousel"
       >
         <!-- indicator e inners colocados com js para poder colocar mais de 3 imgs no carousel-->
@@ -79,20 +102,9 @@
         </button>
       </div>
     </section>
-    <button
-      class="btn btn-outline-success border-2 border-black"
-      id="btn-carrinho"
-      onclick="showCarrinho()"
-    >
-      <span class="cart-badge" id="cartBadge">0</span>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/4/4295.png"
-        id="imagem_carrinho"
-        alt=""
-      />
-    </button>
+
     <aside
-      class="container closed d-flex flex-column bg-light p-0 pb-4 border-warning"
+      class="container closed text-white d-flex flex-column bg-light p-0 pb-4 border-warning"
       id="container-carrinho"
     >
       <div class="title bg-warning d-flex justify-content-between p-3">
