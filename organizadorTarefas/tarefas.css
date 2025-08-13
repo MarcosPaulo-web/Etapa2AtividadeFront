@@ -45,11 +45,6 @@ body {
   color: var(--cor-texto);
 }
 
-/*#logo {
-  width: 80px;
-  height: auto;
-}*/
-
 h1 {
   margin-bottom: -4px;
 }
@@ -109,12 +104,11 @@ form {
   box-shadow: 0 0 10px var(--cor-sombra);
 }
 
-.tarefas{
+.tarefas {
   max-width: 800px;
 }
 
-.card{
+.card {
   background-color: var(--cor-card);
   box-shadow: 0 0 10px var(--cor-sombra);
-
 }
