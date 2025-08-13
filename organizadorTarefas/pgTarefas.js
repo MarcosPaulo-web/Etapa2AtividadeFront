@@ -7,23 +7,38 @@ document.addEventListener("DOMContentLoaded", () => {
   renderizar(filtroAtual);
 });
 
+
 document.getElementById("formTarefa").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const descricao = document.getElementById("descricao").value;
-  const prazo = document.getElementById("data").value;
+    e.preventDefault();
+    const descricao = document.getElementById("descricao").value;
+    const prazo = document.getElementById("data").value;
 
-  const nova = {
-    id: Date.now(),
-    descricao: descricao,
-    prazo: prazo,
-    concluida: false,
-  };
+    if (!descricao || !prazo) {
+        alert("Por favor, preencha a descrição e a data da tarefa.");
+        return;
+    }
 
-  tarefas.push(nova);
-  salvarTarefas();
-  this.reset();
-  renderizar(filtroAtual);
+    const hoje = new Date().setHours(0, 0, 0, 0);
+    const dataPrazo = new Date(prazo + "T00:00:00").getTime();
+
+    if (dataPrazo < hoje) {
+        alert("Você não pode adicionar tarefas com datas passadas.");
+        return; 
+    }
+
+    const nova = {
+        id: Date.now(),
+        descricao: descricao,
+        prazo: prazo,
+        concluida: false
+    };
+
+    tarefas.push(nova);
+    salvarTarefas();
+    this.reset();
+    renderizar(filtroAtual);
 });
+
 
 function salvarTarefas() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tarefas));
