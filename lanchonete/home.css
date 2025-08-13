@@ -4,6 +4,11 @@
   background: rgba(0, 0, 0, 0.336) !important;
 }
 
+#containerCarousel {
+  padding: 0;
+  margin: 0;
+}
+
 /* Define o tamanho do carrosel inteiro */
 #carouselExampleCaptions {
   width: 100%;
@@ -21,10 +26,15 @@
   object-fit: cover;
 }
 
+#btnTheme {
+  font-weight: bolder;
+  border-radius: 50% !important;
+  height: 80px;
+  width: 80px;
+}
+
 #btn-carrinho {
-  position: fixed;
-  right: 2%;
-  top: 30%;
+  position: relative;
   border-radius: 50%;
   height: 80px;
   width: 80px;
@@ -34,6 +44,23 @@
 #btn-carrinho img {
   width: 100%;
   height: auto;
+  object-fit: cover;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  background: #dc3545;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 #card {
@@ -54,6 +81,17 @@
   height: 100%;
   z-index: 1001;
   transition: all 0.3s ease;
+  color: white;
+}
+aside.bg-light {
+  position: fixed;
+  right: 0;
+  top: 0%;
+  width: 50%;
+  height: 100%;
+  z-index: 1001;
+  transition: all 0.3s ease;
+  background-color: rgb(110, 29, 0) !important;
 }
 .closed {
   position: fixed;
@@ -69,30 +107,16 @@
   width: 100%;
   overflow-y: auto !important;
 }
-
-.cart-badge {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #dc3545;
-  color: white;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: bold;
+#card-deck-carrinho {
+  height: 80%;
+  width: 100%;
+  overflow-y: auto !important;
 }
 
-#btnTheme {
-  font-weight: bolder;
-  position: fixed;
-  top: 15%;
-  right: 2%;
-  z-index: 1000;
-  border-radius: 50% !important;
-  height: 80px;
-  width: 80px;
+.bg-warning {
+  background-color: rgb(110, 29, 0) !important;
+}
+
+.bg-light {
+  background-color: rgba(253, 255, 218, 0.308) !important;
 }

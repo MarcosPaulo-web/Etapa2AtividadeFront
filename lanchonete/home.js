@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", carregarSite);
 function carregarSite() {
   carregarDestaque();
   listCardapio();
+
   if (localStorage.getItem("tema") == "dark_theme") {
     trocarTema();
   }
@@ -27,21 +28,23 @@ function trocarTema() {
     }
   });
   const btnTheme = document.querySelector("#btnTheme");
+  const iconBtn = document.querySelector("#icon");
 
   btnTheme.classList.toggle("dark_theme");
   btnTheme.classList.toggle("light_theme");
+
+  iconBtn.classList.toggle("bi-moon");
+  iconBtn.classList.toggle("bi-brightness-high");
 
   if (btnTheme.classList.contains("dark_theme")) {
     localStorage.setItem("tema", "light_theme");
     btnTheme.classList.add("btn-outline-dark");
     btnTheme.classList.remove("btn-outline-light");
-    btnTheme.textContent = "Modo Escuro";
   } else {
     //tema escuro
     localStorage.setItem("tema", "dark_theme");
     btnTheme.classList.remove("btn-outline-dark");
     btnTheme.classList.add("btn-outline-light");
-    btnTheme.textContent = "Modo Claro";
   }
 
   const carrinho = document.querySelector(".btn-outline-success,.btn-light");
@@ -95,7 +98,9 @@ function carregarDestaque() {
     htmlDestaque += `
      <div " id="cardCarousel" class="carousel-item ${
        index === 0 ? "active" : ""
-     } ">
+     } "
+     data-bs-interval="5000"
+     >
             <img
               src="${produto.img}"
               class="d-block w-100"
