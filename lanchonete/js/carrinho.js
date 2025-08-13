@@ -46,7 +46,7 @@ function showCarrinho() {
 }
 
 function clearCarrinho() {
-  localStorage.clear();
+  localStorage.removeItem("carrinho");
   loadPrecoFinal();
   loadCardsCarrinho();
   mostrarToast("Compra finalizada com sucesso");

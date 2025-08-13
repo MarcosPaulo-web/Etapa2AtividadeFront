@@ -1,0 +1,16 @@
+body {
+  height: 96vh;
+  background: url("https://static.vecteezy.com/ti/vetor-gratis/t1/5490026-legumes-desenhados-a-mao-padrao-sem-costura-fundo-de-alimento-vegano-em-estilo-esboco-gratis-vetor.jpg") !important;
+  background-blend-mode: overlay;
+}
+
+body.bg-warning {
+  background-color: rgb(255, 169, 138) !important;
+}
+body.bg-black {
+  background-color: rgba(0, 0, 0, 0.774) !important;
+}
+
+.bg-light {
+  background-color: rgb(110, 29, 0) !important;
+}

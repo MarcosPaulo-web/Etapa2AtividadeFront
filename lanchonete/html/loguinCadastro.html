@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/loginCadastro.css" />
+    <title>Tela de Login</title>
+  </head>
+  <div class="toast-container position-fixed top-0 end-0 p-5">
+    <div
+      id="meuToast"
+      class="toast align-items-center text-white bg-danger border-0"
+      role="alert"
+    >
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+        ></button>
+      </div>
+    </div>
+  </div>
+  <body class="bg-warning">
+    <header
+      class="container-fluid d-flex bg-light text-center flex-row justify-content-between p-3"
+    >
+      <div class="logo">
+        <img
+          src="../img/ChatGPT Image 12_08_2025, 18_42_46.png"
+          alt="logo"
+          style="width: 80px; height: auto; border-radius: 50%"
+        />
+      </div>
+      <div class="mensagem">
+        <h1>Lanchonete Express</h1>
+        <p>Sabor rápido, qualidade garantida!</p>
+      </div>
+      <div class="group-btns d-flex justify-content-center gap-3">
+        <a href="../html/loguinCadastro.html">
+          <button class="btn btn-outline-dark border-2" id="btnPerfil">
+            <i class="bi bi-person"> </i>
+          </button>
+        </a>
+        <button
+          class="btn dark_theme btn-outline-dark border-2"
+          id="btnTheme"
+          onclick="trocarTema()"
+        >
+          <i class="bi bi-moon fs-2" id="icon"></i>
+        </button>
+        <button
+          id="btn-carrinho"
+          class="btn btn-outline-success"
+          onclick="showCarrinho()"
+        >
+          <span class="cart-badge" id="cartBadge">0</span>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4/4295.png"
+            id="imagem_carrinho"
+            alt=""
+          />
+        </button>
+      </div>
+    </header>
+    <main
+      class="container-md d-flex gap-3 justify-content-center align-items-center flex-column h-75"
+    >
+      <form id="login" class="row gap-3 bg-light p-5 w-50">
+        <h2 class="text-center">Login</h2>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email"
+          class="form-control"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="senha"
+          placeholder="senha"
+          required
+          class="form-control"
+        />
+        <div class="btn-group">
+          <button
+            id="btnParaCadastro"
+            type="button"
+            class="text-white btn btn-link w-25"
+          >
+            Não possuo conta
+          </button>
+          <button id="btnLogin" type="button" class="btn btn-success">
+            Logar
+          </button>
+        </div>
+      </form>
+      <form id="cadastro" class="row gap-3 bg-light p-5 d-none w-50">
+        <h2 class="text-center">Cadastro</h2>
+        <input
+          type="email"
+          name="email"
+          id="emailCadastro"
+          placeholder="email"
+          class="form-control"
+          required
+        />
+        <input
+          type="text"
+          name="password"
+          id="senhaCadastro"
+          placeholder="Senha"
+          required
+          class="form-control"
+        />
+        <input
+          type="text"
+          name="endereco"
+          placeholder="Endereco"
+          id="endereco"
+          required
+          class="form-control"
+        />
+        <div class="btn-group">
+          <button
+            class="text-white btn btn-link w-25"
+            id="btnParaLogin"
+            type="button"
+          >
+            Já tenho uma conta
+          </button>
+          <button id="btnCadastrar" type="button" class="btn btn-success">
+            Cadastrar
+          </button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+  crossorigin="anonymous"
+></script>
+<script src="../js/trocaTema.js"></script>
+<script src="../js/home.js"></script>
+<script src="../js/loginCadastro.js"></script>

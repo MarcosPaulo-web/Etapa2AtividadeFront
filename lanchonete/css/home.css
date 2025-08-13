@@ -33,12 +33,12 @@
   width: 80px;
 }
 
-#btn-carrinho {
+#btn-carrinho,
+#btnPerfil {
   position: relative;
   border-radius: 50%;
   height: 80px;
   width: 80px;
-  z-index: 1000;
 }
 
 #btn-carrinho img {
@@ -77,7 +77,7 @@
   position: fixed;
   right: 0;
   top: 0%;
-  width: 50%;
+  width: 30%;
   height: 100%;
   z-index: 1001;
   transition: all 0.3s ease;
@@ -119,4 +119,10 @@ aside.bg-light {
 
 .bg-light {
   background-color: rgba(253, 255, 218, 0.308) !important;
+}
+
+@media (max-width: 1200px) {
+  #container-carrinho {
+    width: 50%;
+  }
 }
