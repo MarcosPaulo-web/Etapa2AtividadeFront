@@ -21,6 +21,7 @@ body::before {
     z-index: -1;
 }
 
+/* Navbar */
 .navbar {
     opacity: 95%;
 }
@@ -36,8 +37,24 @@ body::before {
     letter-spacing: 1px;
 }
 
-main {
-    color: whitesmoke;
+.btn-tema {
+    width: 20%;
+    min-width: 120px;
+}
+
+/* Cards modo claro */
+.card {
+    background-color: rgba(255, 255, 255, 0.7) !important; 
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #000;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card-img-top {
@@ -47,19 +64,31 @@ main {
     padding: 5px;
 }
 
-.card {
-    background-color: rgba(255, 255, 255, 0.7) !important; 
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Modo escuro */
+body.modo-escuro::before {
+    filter: blur(8px) brightness(0.5);
 }
 
-.card:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+body.modo-escuro #mainNavbar {
+    background-color: #222 !important;
 }
 
-.card-body {
-    background-color: transparent;
+body.modo-escuro #mainNavbar .navbar-brand,
+body.modo-escuro #mainNavbar .nav-link {
+    color: white !important;
+}
+
+body.modo-escuro .card {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    color: white;
+}
+
+body.modo-escuro .btn-tema {
+    border-color: white;
+    color: white;
+}
+
+body.modo-escuro .btn-tema:hover {
+    background-color: white;
+    color: black;
 }

@@ -2,9 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const listaEstante = document.getElementById("lista-estante");
     const contador = document.getElementById("contador-livros");
     const searchInput = document.getElementById("searchInput");
+    const btnTema = document.getElementById("btnTema");
 
     let livros = JSON.parse(localStorage.getItem("livros")) || [];
     let estante = JSON.parse(localStorage.getItem("estante")) || [];
+
+    // Modo Escuro
+    if (localStorage.getItem("modoEscuro") === "true") {
+        document.body.classList.add("modo-escuro");
+        btnTema.textContent = "Modo Claro";
+    }
+
+    btnTema.addEventListener("click", function () {
+        document.body.classList.toggle("modo-escuro");
+        const isEscuro = document.body.classList.contains("modo-escuro");
+        localStorage.setItem("modoEscuro", isEscuro);
+        this.textContent = isEscuro ? "Modo Claro" : "Modo Escuro";
+    });
 
     function atualizarContador() {
         contador.textContent = estante.length;
@@ -13,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderizarEstante(filtro = "") {
         listaEstante.innerHTML = "";
 
-        // Filtro aplicado sobre os livros
         const estanteFiltrada = estante.filter(itemEstante => {
             const livro = livros.find(l => l.id === itemEstante.idLivro);
             if (!livro) return false;
@@ -62,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
     listaEstante.addEventListener("click", function (e) {
         if (e.target.classList.contains("remover-estante")) {
             const id = parseInt(e.target.dataset.id);
-
             estante = estante.filter(e => e.idLivro !== id);
             livros = livros.filter(l => l.id !== id);
 
@@ -86,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Filtro de pesquisa
+    // Filtro
     if (searchInput) {
         searchInput.addEventListener("input", function () {
             renderizarEstante(this.value);
