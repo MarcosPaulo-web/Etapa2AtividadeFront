@@ -112,3 +112,17 @@ form {
   background-color: var(--cor-card);
   box-shadow: 0 0 10px var(--cor-sombra);
 }
+
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+.btn-entrada{
+  background-color: var(--cor-btn-azul);
+}
+
+.btn-entrada:hover{
+  background-color: var(--cor-btn-azul-hover);
+}
