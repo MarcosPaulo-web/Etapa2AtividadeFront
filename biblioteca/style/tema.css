@@ -1,0 +1,59 @@
+body.modo-escuro::before {
+    filter: blur(8px) brightness(0.5);
+}
+
+body.modo-escuro .card {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    color: white;
+}
+
+body.modo-escuro .card .btn {
+    border-color: white;
+    color: white;
+}
+
+body.modo-escuro .card .btn:hover {
+    background-color: white;
+    color: black;
+}
+
+body.modo-escuro #mainNavbar {
+    background-color: #222 !important;
+}
+
+body.modo-escuro #mainNavbar .navbar-brand,
+body.modo-escuro #mainNavbar .nav-link {
+    color: white !important;
+}
+
+body.modo-escuro #mainNavbar .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.btn-tema {
+    width: 20%;
+    min-width: 120px;
+}
+
+body.modo-escuro .btn-tema {
+    border-color: white;
+    color: white;
+}
+
+body.modo-escuro .btn-tema:hover {
+    background-color: white;
+    color: black;
+}
+
+body.modo-escuro .border {
+    background-color: #222 !important;
+}
+
+body.modo-escuro .form-label {
+    color: white;
+}
+
+body.modo-escuro .form-title{
+    color: white;
+}

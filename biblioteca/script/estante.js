@@ -7,19 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let livros = JSON.parse(localStorage.getItem("livros")) || [];
     let estante = JSON.parse(localStorage.getItem("estante")) || [];
 
-    // Modo Escuro
-    if (localStorage.getItem("modoEscuro") === "true") {
-        document.body.classList.add("modo-escuro");
-        btnTema.textContent = "Modo Claro";
-    }
-
-    btnTema.addEventListener("click", function () {
-        document.body.classList.toggle("modo-escuro");
-        const isEscuro = document.body.classList.contains("modo-escuro");
-        localStorage.setItem("modoEscuro", isEscuro);
-        this.textContent = isEscuro ? "Modo Claro" : "Modo Escuro";
-    });
-
     function atualizarContador() {
         contador.textContent = estante.length;
     }

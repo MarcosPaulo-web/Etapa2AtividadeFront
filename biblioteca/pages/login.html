@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Estante</title>
-    <link rel="stylesheet" href="/biblioteca/style/estante.css">
-    <link rel="stylesheet" href="/biblioteca/style/tema.css">
+        <link rel="stylesheet" href="/biblioteca/style/login.css">
+        <link rel="stylesheet" href="/biblioteca/style/tema.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" 
+    crossorigin="anonymous">
+    <title>Login - Biblioteca da Luz do Vale</title>
 </head>
 <body>
     <header>
@@ -23,10 +26,10 @@
                 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav me-auto">
-                        <a class="nav-link" aria-current="page" href="/biblioteca/pages/cadastro.html">Cadastro</a>
-                        <a class="nav-link" href="/biblioteca/pages/login.html">Login</a>
+                        <a class="nav-link" href="/biblioteca/pages/cadastro.html">Cadastro</a>
+                        <a class="nav-link active" href="/biblioteca/pages/login.html">Login</a>
                         <a class="nav-link" href="/biblioteca/pages/index.html">Acervo</a>
-                        <a class="nav-link active" href="/biblioteca/pages/estante.html">Estante</a>
+                        <a class="nav-link" href="/biblioteca/pages/estante.html">Estante</a>
                     </div>
 
                     <div class="d-flex justify-content-center w-100">
@@ -44,26 +47,25 @@
 
     </header>
 
-<main>
-<div class="container mt-4">
-    <div class="row mb-4">
-        <div class="col-md-3">
-            <div class="card shadow">
-                <div class="card-body text-center">
-                    <h4 class="card-title fw-bold">Minha Estante</h4>
-                    <p class="card-text">Total de livros: <span id="contador-livros">0</span></p>
-                </div>
-            </div>
+        <main>
+
+        <span class="border border-0">
+        <div class="mb-3">
+            <h4 class="form-title">Faça seu login</h4>
+
+            <label for="email" class="form-label">Insira seu e-mail</label>
+            <input type="email" class="form-control" id="logEmail" placeholder="seu@email.com">
+
+            <label for="senha" class="form-label">Insira a senha</label>
+            <input type="password" class="form-control" id="logSenha" placeholder="******">
         </div>
-    </div>
+        <button class="btn btn-outline-dark btn-tema" id="cadastro" onclick="logar()">Logar</button>
+        </span>
 
-    <!-- Livros -->
-    <div id="lista-estante" class="lista-livros row g-4"></div>
-</div>
-</main>
+    </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/biblioteca/script/estante.js"></script>
-<script src="/biblioteca/script/tema.js"></script>
+    <script src="/biblioteca/script/cadlog.js"></script>
+    <script src="/biblioteca/script/tema.js"></script>
+
 </body>
 </html>
